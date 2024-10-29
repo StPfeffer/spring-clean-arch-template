@@ -1,0 +1,189 @@
+#-------------------------------------------------------------------------------#
+#               Qodana analysis is configured by qodana.yaml file               #
+#             https://www.jetbrains.com/help/qodana/qodana-yaml.html            #
+#-------------------------------------------------------------------------------#
+version: "1.0"
+#Specify inspection profile for code analysis
+profile:
+  name: qodana.starter
+#Enable inspections
+#include:
+#  - name: <SomeEnabledInspectionId>
+#Disable inspections
+#exclude:
+#  - name: <SomeDisabledInspectionId>
+#    paths:
+#      - <path/where/not/run/inspection>
+projectJDK: "21" #(Applied in CI/CD pipeline)
+#Execute shell command before Qodana execution (Applied in CI/CD pipeline)
+#bootstrap: sh ./prepare-qodana.sh
+#Install IDE plugins before Qodana execution (Applied in CI/CD pipeline)
+#plugins:
+#  - id: <plugin.id> #(plugin id can be found at https://plugins.jetbrains.com)
+#Specify Qodana linter for analysis (Applied in CI/CD pipeline)
+linter: jetbrains/qodana-jvm:latest
+
+include:
+  - name: DefaultNotLastCaseInSwitchJS
+  - name: JSMissingSwitchDefault
+  - name: JSDuplicateCaseLabel
+  - name: ComparableImplementedButEqualsNotOverridden
+  - name: EqualsAndHashcode
+  - name: ParametersPerConstructor
+  - name: MethodWithMultipleLoops
+  - name: ParametersPerMethod
+  - name: MethodCoupling
+  - name: NonCommentSourceStatements
+  - name: NestingDepth
+  - name: MethodNameSameAsClassName
+  - name: MethodNameSameAsParentName
+  - name: MisspelledMethodName
+  - name: OverloadedMethodsWithSameNumberOfParameters
+  - name: EmptyMethod
+  - name: UnstableTypeUsedInSignature
+  - name: com.intellij.jpb.LombokToStringInspection
+  - name: com.intellij.jpb.UnsupportedTypeWithoutConverterInspection
+  - name: com.intellij.jpb.ConverterSpecifiedIncorrectlyInspection
+  - name: com.intellij.jpb.EntityIdMissingInspection
+  - name: OneToOneWithLazy
+  - name: HtmlTagCanBeJavadocTag
+  - name: PackageInfoWithoutPackage
+  - name: PackageDotHtmlMayBePackageInfo
+  - name: JavadocBlankLines
+  - name: DanglingJavadoc
+  - name: MissingDeprecatedAnnotation
+  - name: UnnecessaryInheritDoc
+  - name: SuspiciousGetterSetter
+  - name: UseCompareMethod
+  - name: IfCanBeSwitch
+  - name: ForEachWithRecordPatternCanBeUsed
+  - name: SimpleDateFormatWithoutLocale
+  - name: AbstractClassExtendsConcreteClass
+  - name: AbstractClassNeverImplemented
+  - name: AbstractClassWithoutAbstractMethods
+  - name: AbstractMethodOverridesAbstractMethod
+  - name: AbstractMethodOverridesConcreteMethod
+  - name: AbstractMethodWithMissingImplementations
+  - name: ExtendsUtilityClass
+  - name: RedundantMethodOverride
+  - name: MissingOverrideAnnotation
+  - name: ParameterTypePreventsOverriding
+  - name: NonProtectedConstructorInAbstractClass
+  - name: RedundantImplements
+  - name: StaticInheritance
+  - name: TypeParameterExtendsFinalClass
+  - name: DockerJsonFormStringLiterals
+  - name: DockerFileAddOrCopyPaths
+  - name: DockerFileAssignments
+  - name: DockerFileRunCommandMissingContinuation
+  - name: ComposeUnquotedPorts
+  - name: ClassWithTooManyDependencies
+  - name: ClassWithTooManyDependents
+  - name: CyclicClassDependency
+  - name: CyclicPackageDependency
+  - name: AccessStaticViaInstance
+  - name: WeakerAccess
+  - name: UnusedReturnValue
+  - name: RedundantExplicitClose
+  - name: RedundantThrows
+  - name: RedundantLambdaParameterType
+  - name: RedundantRecordConstructor
+  - name: BooleanMethodIsAlwaysInverted
+  - name: BooleanVariableAlwaysNegated
+  - name: UnnecessaryLocalVariable
+  - name: TooBroadScope
+  - name: GroovyVariableCanBeFinal
+  - name: IfStatementWithIdenticalBranchesJS
+  - name: NegatedIfElse
+  - name: IfStatementWithTooManyBranches
+  - name: OverlyComplexBooleanExpression
+  - name: ConfusingElse
+  - name: TrivialIf
+  - name: OptionalContainsCollection
+  - name: SizeReplaceableByIsEmpty
+  - name: TryStatementWithMultipleResources
+  - name: ArrayCanBeReplacedWithEnumValues
+  - name: CallToStringConcatCanBeReplacedByOperator
+  - name: BoundedWildcard
+  - name: ChainedEqualityJS
+  - name: MissortedModifiers
+  - name: MultipleVariablesInDeclaration
+  - name: OptionalIsPresent
+  - name: FuseStreamOperations
+  - name: TypeParameterExtendsObject
+  - name: UnnecessarilyQualifiedInnerClassAccess
+  - name: UnnecessarilyQualifiedStaticUsage
+  - name: UnnecessarilyQualifiedStaticallyImportedElement
+  - name: UnnecessaryFinalOnLocalVariableOrParameter
+  - name: UnnecessaryCallToStringValueOf
+  - name: UnnecessaryParentheses
+  - name: UnnecessarySemicolon
+  - name: UseOfObsoleteDateTimeApi
+  - name: ObsoleteCollection
+  - name: SystemOutErr
+  - name: MarkedForRemoval
+  - name: OptionalAssignedToNull
+  - name: ExtractMethodRecommender
+  - name: DeprecatedIsStillUsed
+  - name: CommentedOutCode
+  - name: ThreadDumpStack
+  - name: Deprecation
+  - name: ThrowablePrintedToSystemOut
+  - name: ThrowablePrintStackTrace
+  - name: ClassMayBeInterface
+  - name: AnonymousInnerClass
+  - name: ListenerMayUseAdapter
+  - name: EmptyClass
+  - name: FieldCanBeLocal
+  - name: FinalMethod
+  - name: NonFinalUtilityClass
+  - name: UtilityClassWithPublicConstructor
+  - name: ParameterCanBeLocal
+  - name: ConstructorCount
+  - name: ClassNestingDepth
+  - name: AnonymousClassComplexity
+  - name: ClassCoupling
+  - name: AnonymousClassMethodCount
+  - name: ClassNameSameAsAncestorName
+  - name: NewClassNamingConvention
+  - name: ExceptionNameDoesntEndWithException
+  - name: NonExceptionNameEndsWithException
+  - name: IntLiteralMayBeLongLiteral
+  - name: DoubleLiteralMayBeFloatLiteral
+  - name: PointcutMethodStyleInspection
+  - name: AroundAdviceStyleInspection
+  - name: AopLanguageInspection
+  - name: OverlyStrongTypeCast
+  - name: MethodOnlyUsedFromInnerClass
+  - name: StaticMethodOnlyUsedInOneClass
+  - name: TypeMayBeWeakened
+#  - name: UseOfConcreteClass # You don't want to activate this
+  - name: PublicConstructorInNonPublicClass
+  - name: LambdaParameterHidingMemberVariable
+  - name: LocalVariableHidingMemberVariable
+  - name: MethodOverridesStaticMethod
+  - name: FieldHidesSuperclassField
+  - name: InnerClassVariableHidesOuterClassVariable
+  - name: AnonymousClassVariableHidesContainingMethodVariable
+  - name: StringBufferReplaceableByString
+  - name: RedundantComparatorComparing
+  - name: TrivialStringConcatenation
+  - name: DuplicateBranchesInSwitch
+  - name: ExcessiveLambdaUsage
+  - name: RedundantCompareToJavaTime
+  - name: ManualMinMaxCalculation
+  - name: RedundantStreamOptionalCall
+  - name: SimplifyStreamApiCallChains
+  - name: SimplifyCollector
+  - name: UnnecessaryReturn
+  - name: UnnecessaryContinue
+  - name: UnnecessaryBreak
+  - name: UnnecessaryStringEscape
+  - name: UnnecessaryLabelOnBreakStatement
+  - name: UnnecessaryLabelOnContinueStatement
+  - name: RedundantCast
+  - name: StringOperationCanBeSimplified
+  - name: RedundantArrayCreation
+  - name: SimplifyOptionalCallChains
+  - name: OnlyOneElementUsed
+  - name: ObviousNullCheck

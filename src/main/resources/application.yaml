@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: spring-clean-arch-template
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: cleanarchtemplate
+    password: cleanarchtemplate
+#    url: jdbc:postgresql://${POSTGRES_LOCAL_URL}:${POSTGRES_LOCAL_PORT}/${POSTGRES_DB}
+    url: jdbc:postgresql://postgres:5432/cleanarchtemplate
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+server:
+  port: 8079
+
+management:
+  endpoint:
+    prometheus:
+      enabled: true
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  prometheus:
+    metrics:
+      export:
+        enabled: true
